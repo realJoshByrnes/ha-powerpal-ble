@@ -1,0 +1,17 @@
+{
+  "domain": "powerpal_ble",
+  "name": "Powerpal (Bluetooth)",
+  "codeowners": ["@realJoshByrnes"],
+  "config_flow": true,
+  "dependencies": ["bluetooth_adapters", "recorder"],
+  "documentation": "https://github.com/realJoshByrnes/ha-powerpal-ble",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/realJoshByrnes/ha-powerpal-ble/issues",
+  "bluetooth": [
+    {"service_uuid": "59daabcd-12f4-25a6-7d4f-55961dce4205", "connectable": true},
+    {"service_uuid": "0000fcd7-0000-1000-8000-00805f9b34fb", "connectable": true}
+  ],
+  "requirements": ["bleak-retry-connector>=3.5.0"],
+  "version": "0.1.0"
+}

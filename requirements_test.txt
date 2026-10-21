@@ -1,0 +1,6 @@
+pytest
+bleak
+bleak-retry-connector
+dbus-fast
+aiohttp
+pyflakes

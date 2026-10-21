@@ -1,0 +1,12 @@
+DOMAIN = "powerpal_ble"
+CONF_SERIAL = "serial"
+CONF_LED_SENSITIVITY = "led_sensitivity"  # copy of the device setting, read at setup
+CONF_LED_APPLY = "led_apply"  # set when the user changed it at setup: write once
+CONF_HARDWARE_UUID = "hardware_uuid"  # secret: raw 16 bytes as hex, read over Bluetooth
+CONF_CLOUD_DOWNLOAD = "cloud_download"  # option, default off
+CONF_CLOUD_UPLOAD = "cloud_upload"  # option, default off
+CONF_CLOUD_TOKEN = "cloud_token"  # secret: the device hardware UUID the web service wants
+CONF_PAIRING_CODE = "pairing_code"
+CONF_PULSES_PER_KWH = "pulses_per_kwh"
+DEFAULT_PULSES_PER_KWH = 1000
+UPDATE_INTERVAL_MINUTES = 5

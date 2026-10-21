@@ -1,0 +1,101 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Powerpal",
+        "data": {
+          "address": "Device"
+        }
+      },
+      "configure": {
+        "title": "Set up Powerpal",
+        "description": "Enter the 6-digit pairing code printed on the device. The Powerpal will then be contacted and its settings read.",
+        "data": {
+          "pairing_code": "Pairing code"
+        }
+      },
+      "settings": {
+        "title": "Confirm settings",
+        "description": "LED sensitivity was {led_source}. Flashes per kWh is not stored on the Powerpal: it is printed on your meter (commonly 1000 or 3200).",
+        "data": {
+          "pulses_per_kwh": "Flashes per kWh",
+          "led_sensitivity": "LED sensitivity (0 to 14)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect to the device",
+      "invalid_auth": "Unlock failed: check the pairing code"
+    },
+    "abort": {
+      "already_configured": "Device is already configured",
+      "no_devices_found": "No Powerpal devices found nearby",
+      "unsupported_device": "The Powerpal Pro (Wi-Fi) is not supported",
+      "bonding_failed": "Could not bond after {max} attempts. Last error: {last_error}"
+    },
+    "progress": {
+      "bonding": "Connecting and bonding with the Powerpal: attempt {attempt} of {max}.\n\nLast error: {last_error}\n\nEach attempt takes a few seconds and a weak signal can need several. Keep the Powerpal phone app closed."
+    }
+  },
+  "entity": {
+    "button": {
+      "update_now": {
+        "name": "Update now"
+      }
+    },
+    "number": {
+      "led_sensitivity": {
+        "name": "LED sensitivity"
+      }
+    },
+    "text": {
+      "pairing_code": {
+        "name": "Pairing code"
+      },
+      "hardware_uuid": {
+        "name": "Hardware UUID"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Powerpal settings",
+        "menu_options": {
+          "flashes": "Flashes per kWh",
+          "web_service": "Powerpal web service"
+        }
+      },
+      "flashes": {
+        "title": "Flashes per kWh",
+        "description": "Current settings, by period:\n{timeline}\n\nA change applies from the date and time you choose, so energy already recorded keeps the value it was counted under. Use this for a new meter or a move. By default it lasts until the next recorded change, so correcting one period does not erase the others. Changes can go back as far as {oldest}.",
+        "data": {
+          "factor": "Flashes per kWh",
+          "from": "Applies from",
+          "until": "Until (optional; default: the next change)",
+          "through_end": "Replace every later change too"
+        }
+      },
+      "confirm": {
+        "title": "Confirm the change",
+        "description": "{summary}\n\nSubmit to apply it, or close this window to cancel."
+      },
+      "web_service": {
+        "title": "Powerpal web service",
+        "description": "Both options are off by default. Turning either on makes the integration contact the Powerpal web service (powerpal.net) with this device's serial number and hardware ID.\n\nDownload: fetches readings the phone app uploaded in the past (up to 90 days) and merges them into the history. Readings from the device always take precedence.\n\nUpload: sends this device's readings to your Powerpal account, as the phone app does, so the app and website stay up to date. It only uploads minutes the service does not already have, at most 1,000 per request and one request every 5 minutes. This writes to your account.",
+        "data": {
+          "cloud_download": "Download history from the Powerpal web service",
+          "cloud_upload": "Upload readings to the Powerpal web service"
+        }
+      }
+    },
+    "error": {
+      "start_in_future": "The start time can't be in the future.",
+      "too_old": "That is further back than the readings we still hold (older energy is folded into a running total).",
+      "bad_range": "'Until' must be after 'Applies from', and the factor must be at least 1."
+    },
+    "abort": {
+      "not_loaded": "The integration is not running yet. Try again in a moment."
+    }
+  }
+}
